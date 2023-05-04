@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+img {
+  height: 30px;
+}
+.tituloNav {
+  background-color: aquamarine;
+}
+.App {
+  background-color: coral;
+}
