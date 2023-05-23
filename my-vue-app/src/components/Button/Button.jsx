@@ -16,7 +16,7 @@ const Boton = (props) => {
 
   }
     return (
-    <button onClick={handleClick} style={styleBtn} >{props.children}</button>
+    <button className={props.className} onClick={handleClick} style={styleBtn} >{props.children}</button>
   )
 }
 

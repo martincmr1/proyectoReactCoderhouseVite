@@ -21,9 +21,10 @@ let disableResta = count === 1
   return (
 <>
     <div className='masMenosItem'>
-        <button disabled={disableResta} onClick={handleSust}>-</button>
+      
+        <Boton className="btn btn-danger" disabled={disableResta} onClick={handleSust}>-</Boton>
         <p>{count}</p>
-        <button onClick={handleAdd}>+</button>
+        <Boton className="btn btn-success" onClick={handleAdd}>+</Boton>
     </div>
     <div>
     <Boton/>

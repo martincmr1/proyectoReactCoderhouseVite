@@ -8,7 +8,7 @@ import ItemCount from '../ItemCount/ItemCount';
 function Item({title,img,category,price,color,stock}) {
   return (
     <div>
-    <Card style={{ width: '15rem', display:'flex'}}>
+    <Card style={{ width: '15rem'}}>
       
       <Card.Body>
         <Card.Title>{title}</Card.Title>
