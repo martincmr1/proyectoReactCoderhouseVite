@@ -1,58 +1,24 @@
-
-
 import './App.css'
-
-import { Children } from 'react'
-import Boton from './components/Button/Button'
-import FlexComponent from './components/Flex/FlexComponent'
-import Item from './components/Item/Item'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
-import Main from './components/Main/Main'
 import NavBarPrincipal from './components/navBar/navBar'
-
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
-import Itemlist from './components/ItemList/Itemlist'
-
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CarouselFadeExample from './components/Carousel/Carousel'
-import ItemListContainerSearch from './components/ItemListContainerSearch/ItemListContainerSearch'
-
+import { BrowserRouter , Routes , Route} from 'react-router-dom'
+import CarouselHome from './components/Carousel/Carousel'
 
 function App() {
-  
   return (
-    
-    <>
-    <div>
-     
-       <NavBarPrincipal/>
-      
-       <div>
-      
-       <CarouselFadeExample/>
-       <ItemListContainerSearch/>
-       </div>
-   
-
-            
-
-
-
-
-
-
-    
-    
-    <div>
-  
-   <ItemDetailContainer/>
-
-    </div>
-    </div>
-    
-</>
-  )
-  }
+   <BrowserRouter>
+      <NavBarPrincipal/>
+      <CarouselHome/>
+      <Routes>
+        <Route path='/' element={<ItemListContainer/>}/>
+        <Route path='/product/:id' element={<ItemDetailContainer/>}/>
+        <Route path='/category/:categoryid' element={<ItemListContainer/>}/>
+        <Route path='*' element={<h4>error 404 PAGE NOT found</h4>}/>
+        </Routes>
+   </BrowserRouter>
+)
+}
 
 export default App

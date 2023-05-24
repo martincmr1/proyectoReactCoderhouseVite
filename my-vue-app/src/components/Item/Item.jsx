@@ -1,32 +1,31 @@
 import React from 'react'
-import Boton from '../Button/Button'
 import "./Item.css"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 
-function Item({title,img,category,price,color,stock}) {
+function Item({title,img,category,price,color,stock,id}) {
   return (
-    <div>
+  <div>     
     <Card style={{ width: '15rem'}}>
-      
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Img variant="top" src={img} />
         <Card.Text>
-          ${price}
+        ${price}
         </Card.Text>
-        
         <Card.Text>
-          {category}
+        {category}
         </Card.Text>
-        <Button variant="primary">{"comprar"}</Button>
+        <Link to={`/product/${id}`}>
+        <Button variant="primary">{"ver detalle"}</Button>
+        </Link>
         <ItemCount stock={stock}/>
-        <Boton color={color}>Agregar al carrito</Boton>
+{/*}  <Boton color={color}>Agregar al carrito</Boton> */}
       </Card.Body>
     </Card>
-    </div>
-    
+  </div>    
   );
 }
 

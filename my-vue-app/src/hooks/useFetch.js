@@ -13,9 +13,7 @@ useEffect( ()=> {
  }
  leerDatos()
 } ,[])
-
     return data
 }
-
 
 export default useFetch

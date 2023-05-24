@@ -1,36 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import mobilePhones from '../data/mobiles'
-import ItemListContainer from '../ItemListContainer/ItemListContainer'
+import { useParams } from 'react-router-dom'
+import "./ItemDetailContainer.css"
 
-function getItemData() {
+function getItemData(id) {
 return new Promise((resolve) => {
     setTimeout(() => {
-        resolve(mobilePhones[0])
-    },2000)
+    const requestedItem = mobilePhones.find ((item) => item.id === parseInt(id))
+    resolve(requestedItem)
+    },1000)
 })
 }
 
 function ItemDetailContainer() {
-
 const [product, setProduct]=useState({})
+const {id} =useParams()
 
 useEffect (() => {
-
-        getItemData().then((respuesta) => {
-            setProduct(respuesta)
+    getItemData(id).then((respuesta) => {
+    setProduct(respuesta)
         })
-      } , [] )
-
-
-
-
-
+},[id])
   return (
-   <div><h1>Titulo: {product.title}</h1>
+   <div className='ItemDetailContainer'><h1>{product.title}</h1>
     <img src={product.img}></img>
-  <h4>price: $ {product.price}</h4></div>
-
+    <h2>$ {product.price}</h2>
+    </div>
   )
 }
 
 export default ItemDetailContainer
+
+
+

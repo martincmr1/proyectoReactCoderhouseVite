@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react'
 import mobilePhones from '../data/mobiles'
 import Itemlist from '../ItemList/Itemlist';
 
-
-
-
-
 function getData() {
   return new Promise((resolve) => {
     resolve(mobilePhones);
@@ -13,36 +9,31 @@ function getData() {
 }
 
 function withSearch(OrigComponent){
-  function WrappedComponent() {
+function WrappedComponent() {
   const [searchword, setSearchword] = useState("")
 
- 
- 
-  function handleChange(evt){
+function handleChange(evt){
   const valor = evt.target.value
-   setSearchword(valor)
-  }
+  setSearchword(valor)
+}
   
-  
-  
-  function filterList(products) {
+function filterList(products) {
     if (searchword === "") {
-      return products
+    return products
     }else {
       return products.filter ((item) => {
         let textTitle = item.title.toLowerCase()
         let word = searchword.toLocaleLowerCase()
         return textTitle.includes(word)
   })
-      }
-    }
+  }
+}
     return (
       <>
-      <input onChange={handleChange}
-       placeholder="Buscar productos"></input>
-      <OrigComponent filterList={filterList}/>
+        <input onChange={handleChange}
+        placeholder="Buscar productos"></input>
+        <OrigComponent filterList={filterList}/>
       </>
-
     )
   }
   return WrappedComponent
@@ -50,22 +41,14 @@ function withSearch(OrigComponent){
 
 function ItemListContainerSearch({filterList}) {
   let [products,setProducts] =useState([])
-
-  useEffect(() => {
+   useEffect(() => {
    getData().then((respuesta) => {
-    setProducts(respuesta)
-  })
+   setProducts(respuesta)})
 },[])
-   
-  
-
   return (
-  
-       <Itemlist products={filterList(products)}/>
-   
-
-  )
-
+    <Itemlist products={filterList(products)}/>
+ )
 }
+
 const WrappedItemListContainerSearch = withSearch(ItemListContainerSearch)
 export default WrappedItemListContainerSearch

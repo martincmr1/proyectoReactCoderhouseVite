@@ -1,0 +1,15 @@
+.carousel {
+    padding-top: 3rem;
+   background-color: darkolivegreen;
+   color: gold;
+}
+.carouselImg {
+    height: 400px;
+}
+.carouselTitle {
+        color: yellow;
+        font-style: italic;
+        font-weight: bolder;
+        font-size: 2rem;
+        padding-bottom: 16rem;
+}

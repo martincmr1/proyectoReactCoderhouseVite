@@ -1,45 +1,39 @@
 import Carousel from 'react-bootstrap/Carousel';
 import FlexComponent from '../Flex/FlexComponent';
+import './Carousel.css'
 
-function CarouselFadeExample() {
+function CarouselHome() {
   return (
-    <FlexComponent>
+    <FlexComponent clase="carousel">
     <Carousel fade>
       <Carousel.Item>
         <img
-          className="d-block w-1"
-          src="https://http2.mlstatic.com/D_NQ_NP_2X_868790-MLA51575349818_092022-F.webp"
+          className="d-block w-1 carouselImg"
+          src="https://elaion.com.ar/assets/images/productos/Elaion_AURO_D2530.webp"
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3 className='carouselTitle'>Elaion Auro</h3>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-1"
-          src="https://http2.mlstatic.com/D_NQ_NP_2X_682837-MLA50724004542_072022-F.webp"
+          className="d-block w-1 carouselImg"
+          src="https://elaion.com.ar/assets/images/productos/Elaion_F50_5W40.webp"
           alt="Second slide"
         />
-
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3 className='carouselTitle'>Elaion F50</h3>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-1"
-          src="https://http2.mlstatic.com/D_NQ_NP_2X_679161-MLA50724004539_072022-F.webp"
+          className="d-block w-1 carouselImg"
+          src="https://elaion.com.ar/assets/images/productos/Elaion_F30.webp"
           alt="Third slide"
         />
-
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h3 className='carouselTitle'>Elaion F30</h3>          
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
@@ -47,4 +41,4 @@ function CarouselFadeExample() {
   );
 }
 
-export default CarouselFadeExample;
+export default CarouselHome;
