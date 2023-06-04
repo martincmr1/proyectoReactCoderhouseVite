@@ -19,7 +19,7 @@ function NavBarPrincipal({color}) {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-          <Nav.Link href="/"><img className='logoSize' src="../src/assets/ypflogo.png" alt="" /></Nav.Link>
+          <Nav.Link href="/"><img className='logoSize' src="../../src/assets/ypflogo.png" alt="" /></Nav.Link>
          {/*   <Nav.Link href="/product">Link</Nav.Link> */} 
             <NavDropdown title="Categorias" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/category/Lubricantes">Lubricantes</NavDropdown.Item>
