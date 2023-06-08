@@ -5,8 +5,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Icons from '../Icons/Icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Itemlist from '../ItemList/Itemlist';
+import WrappedItemListContainerSearch from '../ItemListContainerSearch/ItemListContainerSearch';
 
-function NavBarPrincipal({color}) {
+
+
+function NavBarPrincipal({color},) {
   return (
     <Navbar color={color} className="navBarStyle" bg="warning" expand="lg" fixed='top'>
     <Container fluid>
@@ -19,7 +25,7 @@ function NavBarPrincipal({color}) {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-          <Nav.Link href="/"><img className='logoSize' src="../../src/assets/ypflogo.png" alt="" /></Nav.Link>
+          <Nav.Link href="/"><img className='logoSize' src="../public/ypflogo.png" alt="" /></Nav.Link>
          {/*   <Nav.Link href="/product">Link</Nav.Link> */} 
             <NavDropdown title="Categorias" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/category/Lubricantes">Lubricantes</NavDropdown.Item>
@@ -35,19 +41,21 @@ function NavBarPrincipal({color}) {
               Link
             </Nav.Link>*/}
           </Nav>
-       {/*  <Form className="d-flex">
+          <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              
             />
-            <Button variant="outline-success">buscar</Button>
-          </Form>  */}
+            <Button  variant="outline-success">Buscar</Button>
+          </Form>
         </Navbar.Collapse>
       </Container>
       <Icons icon={faCartShopping}/>
     </Navbar>
+
   );
 }
 

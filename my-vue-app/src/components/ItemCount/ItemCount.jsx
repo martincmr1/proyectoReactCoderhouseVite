@@ -2,6 +2,7 @@ import React from 'react'
 import Boton from '../Button/Button'
 import "./ItemCount.css"
 import { useState } from 'react'
+import FlexComponent from '../Flex/FlexComponent'
 
 const ItemCount = ({stock}) => {
 const [count,setCount]=useState(1)
@@ -21,7 +22,9 @@ let disableResta = count === 1
   <div className='masMenosItem'>
     <Boton className="btn btn-danger" disabled={disableResta} onClick={handleSust}>-</Boton>
       <p>{count}</p>
+      <FlexComponent>
     <Boton className="btn btn-success" onClick={handleAdd}>+</Boton>
+    </FlexComponent>
   </div>
   <div>
     <Boton/>

@@ -21,7 +21,7 @@ function Item({title,img,category,price,color,stock,id}) {
         <Link to={`/product/${id}`}>
         <Button variant="primary">{"ver detalle"}</Button>
         </Link>
-        <ItemCount stock={stock}/>
+      {/*}  <ItemCount stock={stock}/>
 {/*}  <Boton color={color}>Agregar al carrito</Boton> */}
       </Card.Body>
     </Card>
