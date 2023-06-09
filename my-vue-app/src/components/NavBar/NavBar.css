@@ -9,3 +9,11 @@
 .logoSize {
         height: 29px;
 }
+
+.nav-link.active {
+    color: red;
+}
+
+NavLink {
+    color: chartreuse;
+}

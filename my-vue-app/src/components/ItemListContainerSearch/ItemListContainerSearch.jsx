@@ -46,7 +46,9 @@ function ItemListContainerSearch({filterList}) {
    setProducts(respuesta)})
 },[])
   return (
+   
     <Itemlist products={filterList(products)}/>
+
  )
 }
 

@@ -7,8 +7,8 @@ import Icons from '../Icons/Icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Itemlist from '../ItemList/Itemlist';
-import WrappedItemListContainerSearch from '../ItemListContainerSearch/ItemListContainerSearch';
+import { Link,NavLink } from 'react-router-dom';
+
 
 
 
@@ -23,24 +23,26 @@ function NavBarPrincipal({color},) {
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-          <Nav.Link href="/"><img className='logoSize' src="../public/ypflogo.png" alt="" /></Nav.Link>
-         {/*   <Nav.Link href="/product">Link</Nav.Link> */} 
+            navbarScroll  >
+   <Nav.Link>  <NavLink to="/" > <img className='logoSize' src="../public/ypflogo.png" alt="logo" />  </NavLink></Nav.Link>
+       
+       {/*    <Nav.Link href="/"><img className='logoSize' src="../public/ypflogo.png" alt="" /></Nav.Link>*/} 
+        {/*    <Nav.Link href="/product">Link</Nav.Link> */} 
             <NavDropdown title="Categorias" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/category/Lubricantes">Lubricantes</NavDropdown.Item>
-              <NavDropdown.Item href="/category/Filtros">
-                Filtros
+              <NavDropdown.Item ><NavLink to="/category/Lubricantes" >Lubricantes</NavLink></NavDropdown.Item>
+              <NavDropdown.Item ><NavLink to="/category/Filtros" >Filtros</NavLink>
+               
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/category/Complementarios">
-                Complementarios
+              <NavDropdown.Item><Link to="/category/Complementarios" >Complementarios</Link>
+                
               </NavDropdown.Item>
             </NavDropdown>
            {/* <Nav.Link href="#" disabled>   
               Link
             </Nav.Link>*/}
           </Nav>
+      
           <Form className="d-flex">
             <Form.Control
               type="search"
@@ -50,7 +52,7 @@ function NavBarPrincipal({color},) {
               
             />
             <Button  variant="outline-success">Buscar</Button>
-          </Form>
+          </Form> 
         </Navbar.Collapse>
       </Container>
       <Icons icon={faCartShopping}/>
