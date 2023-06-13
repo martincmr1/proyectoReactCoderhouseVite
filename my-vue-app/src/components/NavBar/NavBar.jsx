@@ -8,6 +8,8 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link,NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { cartContext } from '../../context/cartContext';
 
 
 
@@ -24,7 +26,7 @@ function NavBarPrincipal({color},) {
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
             navbarScroll  >
-   <Nav.Link>  <NavLink to="/" > <img className='logoSize' src="../public/ypflogo.png" alt="logo" />  </NavLink></Nav.Link>
+   <Nav.Link>  <NavLink to="/" > <img className='logoSize' src="/ypflogo.png" alt="logo" />  </NavLink></Nav.Link>
        
        {/*    <Nav.Link href="/"><img className='logoSize' src="../public/ypflogo.png" alt="" /></Nav.Link>*/} 
         {/*    <Nav.Link href="/product">Link</Nav.Link> */} 
@@ -55,10 +57,20 @@ function NavBarPrincipal({color},) {
           </Form> 
         </Navbar.Collapse>
       </Container>
+      <CartWidget></CartWidget>
       <Icons icon={faCartShopping}/>
     </Navbar>
 
   );
+}
+
+function CartWidget () {
+  const {countItems} = useContext (cartContext)
+  return (
+    <div>
+      <span>{countItems()}</span>
+    </div>
+  )
 }
 
 export default NavBarPrincipal;

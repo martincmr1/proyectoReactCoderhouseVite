@@ -6,11 +6,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter , Routes , Route} from 'react-router-dom'
 import CarouselHome from './components/Carousel/Carousel'
 import ItemListContainerSearch from './components/ItemListContainerSearch/ItemListContainerSearch'
+import { CartContextProvider } from './context/cartContext';
+
+
+
 
 
 function App() {
+ 
   return (
-   <BrowserRouter>
+    <CartContextProvider>
+      <BrowserRouter>
       <NavBarPrincipal/>
       <CarouselHome/>
       <Routes>
@@ -20,6 +26,8 @@ function App() {
         <Route path='*' element={<h4>error 404 PAGE NOT found</h4>}/>
         </Routes>
    </BrowserRouter>
+   </CartContextProvider>
+   
 )
 }
 

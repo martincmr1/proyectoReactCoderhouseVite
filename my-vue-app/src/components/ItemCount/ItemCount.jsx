@@ -4,7 +4,7 @@ import "./ItemCount.css"
 import { useState } from 'react'
 import FlexComponent from '../Flex/FlexComponent'
 
-const ItemCount = ({stock}) => {
+const ItemCount = ({stock, onAddToCart}) => {
 const [count,setCount]=useState(1)
 
 function handleAdd() {
@@ -27,8 +27,9 @@ let disableResta = count === 1
     </FlexComponent>
   </div>
   <div>
-    <Boton/>
+    <Boton onClick={() => {onAddToCart(count)}} className="btn btn-primary">Agregar al carrito</Boton>
   </div>
+  
   </>
   )
 }

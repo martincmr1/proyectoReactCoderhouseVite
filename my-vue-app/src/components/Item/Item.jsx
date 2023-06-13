@@ -10,8 +10,12 @@ function Item({title,img,category,price,color,stock,id}) {
   <div>     
     <Card style={{ width: '15rem'}}>
       <Card.Body>
+      
         <Card.Title>{title}</Card.Title>
+        
+        <Link to={`/product/${id}`}>
         <Card.Img variant="top" src={img} />
+        </Link>
         <Card.Text>
         ${price}
         </Card.Text>
