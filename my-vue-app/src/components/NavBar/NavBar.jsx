@@ -30,13 +30,13 @@ function NavBarPrincipal({color},) {
        
        {/*    <Nav.Link href="/"><img className='logoSize' src="../public/ypflogo.png" alt="" /></Nav.Link>*/} 
         {/*    <Nav.Link href="/product">Link</Nav.Link> */} 
-            <NavDropdown title="Categorias" id="navbarScrollingDropdown">
-              <NavDropdown.Item ><NavLink to="/category/Lubricantes" >Lubricantes</NavLink></NavDropdown.Item>
-              <NavDropdown.Item ><NavLink to="/category/Filtros" >Filtros</NavLink>
+         <NavDropdown title="Categorias" id="navbarScrollingDropdown">
+              <NavDropdown.Item ><NavLink className="nav-link" to="/category/Lubricantes" >Lubricantes</NavLink></NavDropdown.Item>
+              <NavDropdown.Item ><NavLink className="nav-link" to="/category/Filtros" >Filtros</NavLink>
                
               </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item><Link to="/category/Complementarios" >Complementarios</Link>
+             
+              <NavDropdown.Item><NavLink className="nav-link"  to="/category/Complementarios" >Complementarios</NavLink>
                 
               </NavDropdown.Item>
             </NavDropdown>
