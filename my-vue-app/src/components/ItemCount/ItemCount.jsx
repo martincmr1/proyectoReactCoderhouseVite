@@ -20,14 +20,14 @@ let disableResta = count === 1
   return (
  <>
   <div className='masMenosItem'>
-    <Boton className="btn btn-danger" disabled={disableResta} onClick={handleSust}>-</Boton>
+    <Boton className="btn btn-secondary" disabled={disableResta} onClick={handleSust}>-</Boton>
       <p>{count}</p>
       <FlexComponent>
-    <Boton className="btn btn-success" onClick={handleAdd}>+</Boton>
+    <Boton className="btn btn-secondary" onClick={handleAdd}>+</Boton>
     </FlexComponent>
   </div>
-  <div>
-    <Boton onClick={() => {onAddToCart(count)}} className="btn btn-primary">Agregar al carrito</Boton>
+  <div className='btnAddCart'>
+    <Boton onClick={() => {onAddToCart(count)}} className="btn btn-primary ">Agregar al carrito</Boton>
   </div>
   
   </>

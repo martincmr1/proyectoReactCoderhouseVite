@@ -44,11 +44,13 @@ function onAddToCart (count) {
   return (
  
     <div className='ItemDetailContainer card position-absolute top-100 start-50 translate-middle' style={{ width: '18rem', alignContent: 'center' }}>
-  <h1>{product.title}</h1>
+  <h1 className='productTextTitle'>{product.title}</h1>
   <img src={product.img} alt={product.title} />
-  <h2>$ {product.price}</h2>
-  <ItemCount onAddToCart={onAddToCart} stock={product.stock} />
-  <Boton onClick={()=> removeItem(product.id)}> eliminar</Boton>
+  <h2 className='productTextPrice'>$ {product.price}</h2>
+  <div className='itemCount'>
+  <ItemCount className="itemCount" onAddToCart={onAddToCart} stock={product.stock} />
+  </div>
+  <Boton className="btn btn-danger" onClick={()=> removeItem(product.id)}> eliminar</Boton>
 </div>
 
   

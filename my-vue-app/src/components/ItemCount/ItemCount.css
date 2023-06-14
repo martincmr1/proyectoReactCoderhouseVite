@@ -1,3 +1,7 @@
 .masMenosItem {
     display: flex;
+    padding-left: 7rem;
+}
+/*.btn .btn-primary .btnAddToCart{
+        padding-right: 10rem;
 }
