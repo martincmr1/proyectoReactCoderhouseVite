@@ -1,6 +1,6 @@
 import React from 'react'
 import { LineWobble } from '@uiball/loaders'
-import "./Loader.css"
+import "./loader.css"
 
 function Loader() {
   return (
