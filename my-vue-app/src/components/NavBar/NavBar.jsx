@@ -57,20 +57,27 @@ function NavBarPrincipal({color},) {
           </Form> 
         </Navbar.Collapse>
       </Container>
-      <CartWidget></CartWidget>
+      <CartWidget></CartWidget><Link to='/cart'>
       <Icons icon={faCartShopping}/>
+      </Link>
     </Navbar>
 
   );
 }
 
-function CartWidget () {
-  const {countItems} = useContext (cartContext)
+function CartWidget() {
+  const { countItems } = useContext(cartContext);
+  
+  if (countItems() === 0) {
+    return null;
+  }
+  
   return (
     <div>
       <span>{countItems()}</span>
     </div>
-  )
+  );
 }
+
 
 export default NavBarPrincipal;

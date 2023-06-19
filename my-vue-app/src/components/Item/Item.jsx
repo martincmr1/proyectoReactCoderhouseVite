@@ -22,9 +22,23 @@ function Item({title,img,category,price,color,stock,id}) {
         <Card.Text>
         {category}
         </Card.Text>
-        <Link to={`/product/${id}`}>
-        <Button variant="primary">{"ver detalle"}</Button>
-        </Link>
+        { stock === 0 ? (
+
+<Link to={`/product/${id}`}>
+          
+<Button variant="secondary">{"ver detalle"}</Button>
+</Link> 
+        ):(
+<Link to={`/product/${id}`}>
+          
+          <Button variant="primary">{"ver detalle"}</Button>
+          </Link> 
+
+        )
+      
+      
+      
+      } 
       {/*}  <ItemCount stock={stock}/>
 {/*}  <Boton color={color}>Agregar al carrito</Boton> */}
       </Card.Body>
@@ -34,6 +48,7 @@ function Item({title,img,category,price,color,stock,id}) {
 }
 
 export default Item;
+
 
 
 

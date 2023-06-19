@@ -7,6 +7,9 @@ import { BrowserRouter , Routes , Route} from 'react-router-dom'
 import CarouselHome from './components/Carousel/Carousel'
 import ItemListContainerSearch from './components/ItemListContainerSearch/ItemListContainerSearch'
 import { CartContextProvider } from './context/cartContext';
+import 'react-toastify/dist/ReactToastify.css';
+import CartView from './components/CartView/CartView';
+
 
 
 
@@ -15,18 +18,26 @@ import { CartContextProvider } from './context/cartContext';
 function App() {
  
   return (
+    
     <CartContextProvider>
       <BrowserRouter>
-      <NavBarPrincipal/>
-      <CarouselHome/>
+     <NavBarPrincipal/>
+     <CarouselHome/>
       <Routes>
+      
         <Route path='/' element={<ItemListContainerSearch/>}/>
+      
         <Route path='/product/:id' element={<ItemDetailContainer/>}/>
+       
         <Route path='/category/:categoryid' element={<ItemListContainer/>}/>
+        
+        <Route path='/cart' element={<CartView/>}/>
+     
         <Route path='*' element={<h4>error 404 PAGE NOT found</h4>}/>
         </Routes>
    </BrowserRouter>
    </CartContextProvider>
+   
    
 )
 }

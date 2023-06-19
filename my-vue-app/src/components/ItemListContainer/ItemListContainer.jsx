@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 function getData(){
   return new Promise ((resolve) => {
     setTimeout( () => {resolve(mobilePhones);
-    },1000);
+    },3000);
   })
 }
 

@@ -7,6 +7,7 @@ const [colorBtn, setColorBtn] =useState(props.color)
 const styleBtn = {
     backgroundColor:colorBtn,
     padding:"10px"
+    
    
 }
   

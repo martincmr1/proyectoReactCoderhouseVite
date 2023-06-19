@@ -3,7 +3,7 @@ const mobilePhones = [
         "id": 1,
         "title": "Elaion Auro D1 020",
         "category": "Lubricantes",
-        "stock": 8,
+        "stock": 0,
         "img": "https://www.ypf.com/productosyservicios/PublishingImages/imagen-detalle-producto/Elaion_AURO_HYBRID_D1020.jpg",
         "price": 24232
       }, {

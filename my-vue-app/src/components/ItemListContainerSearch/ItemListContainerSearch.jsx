@@ -4,9 +4,15 @@ import Itemlist from '../ItemList/Itemlist';
 
 function getData() {
   return new Promise((resolve) => {
-    resolve(mobilePhones);
-  });
-}
+    setTimeout (
+      () => {
+      resolve(mobilePhones);
+    },
+    5000);
+    });
+  }
+   
+  
 
 function withSearch(OrigComponent){
 function WrappedComponent() {
