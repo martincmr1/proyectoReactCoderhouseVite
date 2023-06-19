@@ -14,14 +14,14 @@ function NavBarPrincipal({ color }) {
   return (
     <Navbar color={color} className="d-flex align-top" bg="warning" expand="lg" fixed='top'>
       <Container>
-        <Navbar.Brand href=""></Navbar.Brand>
+        <Navbar.Brand href=""><NavLink to="/" className="nav-link">
+                <img className='logoSize' src="/ypflogo.png" alt="logo" style={{ height: "29px" }} />
+              </NavLink></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
             <Nav.Link>
-              <NavLink to="/" className="nav-link">
-                <img className='logoSize' src="/ypflogo.png" alt="logo" style={{ height: "29px" }} />
-              </NavLink>
+              
             </Nav.Link>
             <Nav.Link>
               <NavLink className="nav-link" to="/category/Lubricantes">Lubricantes</NavLink>
