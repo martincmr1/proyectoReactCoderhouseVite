@@ -8,32 +8,51 @@ import Boton from '../Button/Button';
 import Loader from '../Loader/Loader';
 
 function getItemData(id) {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       const requestedItem = mobilePhones.find((item) => item.id === parseInt(id));
+    
+    if (requestedItem)
+    
       resolve(requestedItem);
-    }, 6000);
+      else reject(new Error("Producto no encontrado"))
+    }, 2000);
   });
 }
-
 function ItemDetailContainer() {
-  const [product, setProduct] = useState();
+  const [errors, setErrors] = useState(null);
+  const [product, setProduct] = useState(null); // {} truthy => evalua a true
   const [countInCart, setCountInCart] = useState(0);
-  const { cart, addItem, removeItem } = useContext(cartContext);
 
-  const { id } = useParams();
-
-  useEffect(() => {
-    getItemData(id).then((respuesta) => {
-      setProduct(respuesta);
-    });
-  }, [id]);
+  // 2. Usamos/consumimos el Context
+  const { addItem, removeItem } = useContext(cartContext);
 
   function onAddToCart(count) {
     addItem(product, count);
     setCountInCart(count);
+    /* sweet-alert / toastify */
+    console.log(`Agregaste ${count} - ${product.title} al carrito`);
   }
 
+  const id = useParams().id;
+
+  useEffect(() => {
+    getItemData(id)
+      .then((respuesta) => {
+        setProduct(respuesta);
+      })
+      .catch((error) => {
+        setErrors(error.message);
+      });
+  }, [id]);
+
+  if (errors)
+    return (
+      <div style={{  marginTop: "100px" }}>
+        <h1>Error</h1>
+        <p>{errors}</p>
+      </div>
+    );
   if (product) {
     return (
       <div className='ItemDetailContainer card position-absolute top-100 start-50 translate-middle' style={{ width: '18rem', alignContent: 'center' }}>
@@ -59,7 +78,7 @@ function ItemDetailContainer() {
     );
   }
 
-  return <h1><Loader/></h1>;
+  return <Loader/>
 }
 
 export default ItemDetailContainer;

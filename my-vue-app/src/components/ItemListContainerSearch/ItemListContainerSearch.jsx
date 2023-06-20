@@ -1,62 +1,62 @@
-import React, { useEffect, useState } from 'react'
-import mobilePhones from '../data/mobiles'
+import React, { useEffect, useState } from 'react';
+import mobilePhones from '../data/mobiles';
 import Itemlist from '../ItemList/Itemlist';
 
 function getData() {
   return new Promise((resolve) => {
-    setTimeout (
-      () => {
+    setTimeout(() => {
       resolve(mobilePhones);
-    },
-    5000);
-    });
-  }
-   
-  
-
-function withSearch(OrigComponent){
-function WrappedComponent() {
-  const [searchword, setSearchword] = useState("")
-
-function handleChange(evt){
-  const valor = evt.target.value
-  setSearchword(valor)
+    }, 2000);
+  });
 }
-  
-function filterList(products) {
-    if (searchword === "") {
-    return products
-    }else {
-      return products.filter ((item) => {
-        let textTitle = item.title.toLowerCase()
-        let word = searchword.toLocaleLowerCase()
-        return textTitle.includes(word)
-  })
-  }
-}
+
+function withSearch(OrigComponent) {
+  function WrappedComponent() {
+    const [searchword, setSearchword] = useState('');
+
+    function handleChange(evt) {
+      const valor = evt.target.value;
+      setSearchword(valor);
+    }
+
+    function filterList(products) {
+      if (searchword === '') {
+        return products;
+      } else {
+        return products.filter((item) => {
+          let textTitle = item.title.toLowerCase();
+          let word = searchword.toLowerCase();
+          return textTitle.includes(word);
+        });
+      }
+    }
+
     return (
       <>
-        <input onChange={handleChange}
-        placeholder="Buscar productos"></input>
-        <OrigComponent filterList={filterList}/>
+        <input onChange={handleChange} placeholder="Buscar productos" />
+        <OrigComponent filterList={filterList} />
       </>
-    )
+    );
   }
-  return WrappedComponent
+  return WrappedComponent;
 }
 
-function ItemListContainerSearch({filterList}) {
-  let [products,setProducts] =useState([])
-   useEffect(() => {
-   getData().then((respuesta) => {
-   setProducts(respuesta)})
-},[])
-  return (
-   
-    <Itemlist products={filterList(products)}/>
+function ItemListContainerSearch({ filterList }) {
+  let [isLoading, setIsloading] = useState(true);
+  let [products, setProducts] = useState([]);
 
- )
+  useEffect(() => {
+    getData()
+      .then((respuesta) => {
+        setProducts(respuesta);
+      })
+      .finally(() => {
+        setIsloading(false);
+      });
+  }, []);
+
+  return <Itemlist isLoading={isLoading} products={filterList(products)} />;
 }
 
-const WrappedItemListContainerSearch = withSearch(ItemListContainerSearch)
-export default WrappedItemListContainerSearch
+const WrappedItemListContainerSearch = withSearch(ItemListContainerSearch);
+export default WrappedItemListContainerSearch;

@@ -8,9 +8,25 @@ export function CartContextProvider({children}){
 
 function addItem(product,count) {
     const newCart = [...cart]
+if (isInCart(product.id)){
+let index = cart.findIndex((cartItem) => cartItem.id === product.id)
+newCart[index].count += count
+
+setCart(newCart)
+    
+}
+
+
+else {
 newCart.push({...product,count})
 setCart(newCart)
 }
+}
+
+function isInCart(id) {
+    return cart.some((item) => item.id === id)
+}
+
 
 function countItems() {
     let total = 0
@@ -25,7 +41,7 @@ function removeItem (idDelete) {
 
 
     return(
-        <cartContext.Provider value={{cart,setCart,addItem,countItems,removeItem}}>
+        <cartContext.Provider value={{cart,setCart,addItem,countItems,removeItem,isInCart}}>
             {children}
         </cartContext.Provider>
 

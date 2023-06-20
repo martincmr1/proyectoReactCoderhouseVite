@@ -8,13 +8,15 @@ import { useParams } from 'react-router-dom';
 function getData(){
   return new Promise ((resolve) => {
     setTimeout( () => {resolve(mobilePhones);
-    },3000);
+    },2000);
   })
 }
 
 function ItemListContainer() {
+  let [isLoading,setIsloading] = useState (true)
   let [products,setProducts] =useState([])
   const {categoryid} = useParams()
+  
   useEffect(() => {
   getData().then((respuesta) => {
     if(categoryid) {
@@ -24,11 +26,13 @@ function ItemListContainer() {
   setProducts(respuesta)
 }   
   })
+  .finally (() => {setIsloading(false);
+  })
 },[categoryid])
    return (
     <div className='itemListContainer'> 
       <FlexComponent>
-       <Itemlist products={products}/>
+       <Itemlist isLoading={isLoading} products={products}/>
        </FlexComponent>  
     </div>
   )

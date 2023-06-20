@@ -3,8 +3,9 @@ import Item from '../Item/Item'
 import FlexComponent from '../Flex/FlexComponent'
 import Loader from '../Loader/Loader'
 
-function Itemlist ({products}) {
-  if (products.length === 0) return <h1><Loader/></h1>
+function Itemlist ({products,isLoading}) {
+  if (isLoading) return <h1><Loader/></h1>
+  if (products.length === 0) return <h2>Producto no encontrado</h2>
   return (
     <>
     <div> 

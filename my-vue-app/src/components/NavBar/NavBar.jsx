@@ -6,11 +6,18 @@ import Icons from '../Icons/Icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link, NavLink } from 'react-router-dom';
-import { useContext } from 'react';
+import { Link, NavLink,useLocation } from 'react-router-dom';
+import { useContext , useEffect} from 'react';
 import { cartContext } from '../../context/cartContext';
 
 function NavBarPrincipal({ color }) {
+
+  let location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <Navbar color={color} className="d-flex align-top" bg="warning" expand="lg" fixed='top'>
       <Container>
