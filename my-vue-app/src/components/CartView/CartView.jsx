@@ -1,7 +1,7 @@
 import { cartContext } from "../../context/cartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { createOrder } from "../../_services/firebase";
+import {  createOrderWithStockUpdate } from "../../_services/firebase";
 import { useNavigate } from "react-router-dom";
 
 
@@ -22,11 +22,20 @@ async function handleConfirm(){
   price:countTotalPrice()
 
   }
+  try {
+    const id = await createOrderWithStockUpdate(order);
+    console.log("respuesta", id);
+    clear();
 
- const id = await createOrder(order)
- clear()
- navigateTo(`/order-confirmation/${id}`)
- 
+    navigateTo(`/order-confirmation/${id}`);
+    /* 
+    1. alert: SweetAlert/toastify -> muestren el id
+    2. redirección: React Router -> /confirmation
+    3. rendering condicional -> modificando un state
+  */
+  } catch (error) {
+    alert(error);
+  }
 }
 
   if (cart.length === 0) {
@@ -53,7 +62,7 @@ async function handleConfirm(){
                 X
               </button>
               <br />
-              Total: $ {item.count * item.price}
+              Total: $ {(item.count * item.price).toFixed(2)}
             </li>
           </ul>
         ))}

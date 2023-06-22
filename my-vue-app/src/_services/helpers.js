@@ -23,7 +23,8 @@ import {getFirestore, collection, addDoc} from "firebase/firestore"
         
        
       for (let item of products) {
-          
+        item.index= item.id
+          delete item.id 
          
       await addDoc(productsCollectionRef, item);
         }
