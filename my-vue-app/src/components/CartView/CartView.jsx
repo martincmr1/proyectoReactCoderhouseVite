@@ -3,25 +3,21 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import {  createOrderWithStockUpdate } from "../../_services/firebase";
 import { useNavigate } from "react-router-dom";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
 
 
 function CartView() {
   const { cart, removeItem,countTotalPrice,clear } = useContext(cartContext);
   const navigateTo = useNavigate()
-async function handleConfirm(){
-  const order ={
+async function handleConfirm(userData){
+  const order = {
+    items: cart,
+    buyer: userData,
+    date: new Date(),
+    price: countTotalPrice(),
+  };
 
-  items:cart,
-  buyer:{
-    name:"Martin",
-    phone:666334,
-    email:"martin@hotmail.com"
-          },
-  date:new Date(),
-  price:countTotalPrice()
-
-  }
   try {
     const id = await createOrderWithStockUpdate(order);
     console.log("respuesta", id);
@@ -66,7 +62,7 @@ async function handleConfirm(){
             </li>
           </ul>
         ))}
-        <button onClick={handleConfirm}>Crear orden de compra</button>
+         <CheckoutForm onConfirm={handleConfirm} />
       </div>
      
     );
