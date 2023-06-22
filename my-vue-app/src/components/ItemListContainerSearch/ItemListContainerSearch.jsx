@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import mobilePhones from '../data/mobiles';
 import Itemlist from '../ItemList/Itemlist';
+import { getData } from '../../_services/firebase';
 
-function getData() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(mobilePhones);
-    }, 2000);
-  });
-}
+
 
 function withSearch(OrigComponent) {
   function WrappedComponent() {

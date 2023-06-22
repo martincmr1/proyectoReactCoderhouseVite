@@ -6,19 +6,11 @@ import ItemCount from '../ItemCount/ItemCount';
 import { cartContext } from '../../context/cartContext';
 import Boton from '../Button/Button';
 import Loader from '../Loader/Loader';
+import { getItemData } from '../../_services/firebase';
 
-function getItemData(id) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const requestedItem = mobilePhones.find((item) => item.id === parseInt(id));
-    
-    if (requestedItem)
-    
-      resolve(requestedItem);
-      else reject(new Error("Producto no encontrado"))
-    }, 2000);
-  });
-}
+
+
+
 function ItemDetailContainer() {
   const [errors, setErrors] = useState(null);
   const [product, setProduct] = useState(null); // {} truthy => evalua a true

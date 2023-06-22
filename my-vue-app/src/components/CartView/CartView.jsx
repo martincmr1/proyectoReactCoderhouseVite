@@ -1,9 +1,33 @@
 import { cartContext } from "../../context/cartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { createOrder } from "../../_services/firebase";
+import { useNavigate } from "react-router-dom";
+
+
 
 function CartView() {
-  const { cart, removeItem } = useContext(cartContext);
+  const { cart, removeItem,countTotalPrice,clear } = useContext(cartContext);
+  const navigateTo = useNavigate()
+async function handleConfirm(){
+  const order ={
+
+  items:cart,
+  buyer:{
+    name:"Martin",
+    phone:666334,
+    email:"martin@hotmail.com"
+          },
+  date:new Date(),
+  price:countTotalPrice()
+
+  }
+
+ const id = await createOrder(order)
+ clear()
+ navigateTo(`/order-confirmation/${id}`)
+ 
+}
 
   if (cart.length === 0) {
     return (
@@ -33,7 +57,9 @@ function CartView() {
             </li>
           </ul>
         ))}
+        <button onClick={handleConfirm}>Crear orden de compra</button>
       </div>
+     
     );
   }
 }

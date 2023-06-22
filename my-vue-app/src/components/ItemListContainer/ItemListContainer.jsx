@@ -4,28 +4,21 @@ import Itemlist from '../ItemList/Itemlist';
 import "./ItemlistContainer.css"
 import FlexComponent from '../Flex/FlexComponent';
 import { useParams } from 'react-router-dom';
+import { getCategoryData, getData } from '../../_services/firebase';
 
-function getData(){
-  return new Promise ((resolve) => {
-    setTimeout( () => {resolve(mobilePhones);
-    },2000);
-  })
-}
 
 function ItemListContainer() {
   let [isLoading,setIsloading] = useState (true)
   let [products,setProducts] =useState([])
   const {categoryid} = useParams()
   
+const fetchData =categoryid === undefined? getData : getCategoryData
+
+
   useEffect(() => {
-  getData().then((respuesta) => {
-    if(categoryid) {
-    const filterProducts = respuesta.filter ((item) => item.category === categoryid)
-  setProducts(filterProducts)
-} else {
-  setProducts(respuesta)
-}   
-  })
+  fetchData(categoryid)
+  .then(respuesta => setProducts(respuesta))
+    
   .finally (() => {setIsloading(false);
   })
 },[categoryid])

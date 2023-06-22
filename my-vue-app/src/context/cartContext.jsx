@@ -27,7 +27,14 @@ function isInCart(id) {
     return cart.some((item) => item.id === id)
 }
 
+function countTotalPrice() {
+    return 1000
+}
 
+function clear() {
+setCart([])
+
+}
 function countItems() {
     let total = 0
     cart.forEach ((item) => {
@@ -41,7 +48,7 @@ function removeItem (idDelete) {
 
 
     return(
-        <cartContext.Provider value={{cart,setCart,addItem,countItems,removeItem,isInCart}}>
+        <cartContext.Provider value={{cart,setCart,addItem,countItems,removeItem,isInCart,countTotalPrice,clear}}>
             {children}
         </cartContext.Provider>
 

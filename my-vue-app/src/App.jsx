@@ -9,7 +9,8 @@ import ItemListContainerSearch from './components/ItemListContainerSearch/ItemLi
 import { CartContextProvider } from './context/cartContext';
 import 'react-toastify/dist/ReactToastify.css';
 import CartView from './components/CartView/CartView';
-
+import OrderConfirm from './components/OrderConfirm/OrderConfirm';
+import { exportData } from './_services/helpers';
 
 
 
@@ -23,6 +24,7 @@ function App() {
       <BrowserRouter>
      <NavBarPrincipal/>
      <CarouselHome/>
+     <button onClick={exportData}>exportar datos</button>
       <Routes>
       
         <Route path='/' element={<ItemListContainerSearch/>}/>
@@ -32,6 +34,7 @@ function App() {
         <Route path='/category/:categoryid' element={<ItemListContainer/>}/>
         
         <Route path='/cart' element={<CartView/>}/>
+        <Route path='/order-confirmation/:orderid' element={<OrderConfirm/>} />
      
         <Route path='*' element={<h4>error 404 PAGE NOT found</h4>}/>
         </Routes>
