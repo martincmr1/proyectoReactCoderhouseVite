@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import mobilePhones from '../data/mobiles';
 import Itemlist from '../ItemList/Itemlist';
 import { getData } from '../../_services/firebase';
-
+import './ItemListContainerSearch.css'
 
 
 function withSearch(OrigComponent) {
@@ -28,8 +27,10 @@ function withSearch(OrigComponent) {
 
     return (
       <>
+      <div className='search-container'>
         <input onChange={handleChange} placeholder="Buscar productos" />
         <OrigComponent filterList={filterList} />
+        </div>
       </>
     );
   }

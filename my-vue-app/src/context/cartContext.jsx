@@ -16,7 +16,6 @@ setCart(newCart)
     
 }
 
-
 else {
 newCart.push({...product,count})
 setCart(newCart)
@@ -26,10 +25,18 @@ setCart(newCart)
 function isInCart(id) {
     return cart.some((item) => item.id === id)
 }
-
 function countTotalPrice() {
-    return 1000
-}
+    let totalPrice = 0;
+    cart.
+   
+  forEach((item) => {
+      totalPrice += item.
+     
+  price * item.count;
+    });
+    return totalPrice;
+  }
+
 
 function clear() {
 setCart([])
@@ -46,13 +53,11 @@ function removeItem (idDelete) {
     setCart (cart.filter(item =>item.id !== idDelete))
 }
 
-
-    return(
-        <cartContext.Provider value={{cart,setCart,addItem,countItems,removeItem,isInCart,countTotalPrice,clear}}>
-            {children}
-        </cartContext.Provider>
-
-    )
+return(
+<cartContext.Provider value={{cart,setCart,addItem,countItems,removeItem,isInCart,countTotalPrice,clear}}>
+{children}
+</cartContext.Provider>
+)
 }
 
 

@@ -4,8 +4,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Icons from '../Icons/Icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import { Link, NavLink,useLocation } from 'react-router-dom';
 import { useContext , useEffect} from 'react';
 import { cartContext } from '../../context/cartContext';
@@ -40,10 +38,6 @@ function NavBarPrincipal({ color }) {
               <NavLink className="nav-link" to="/category/Complementarios">Complementarios</NavLink>
             </Nav.Link>
           </Nav>
-          <Form className="d-flex">
-            <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
-            <Button variant="outline-success">Buscar</Button>
-          </Form>
         </Navbar.Collapse>
         <CartWidget />
         <Link to='/cart'>

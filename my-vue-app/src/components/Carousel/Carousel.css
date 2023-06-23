@@ -1,15 +1,24 @@
+
 .carousel {
- padding-top: 2rem;
-   background-color: darkolivegreen;
-   color: gold;
+  padding-top: 2rem;
+  background: url(https://i.ytimg.com/vi/TwjVf6jDQxg/maxresdefault.jpg) no-repeat center;
+  background-size: cover;
+  color: gold;
 }
+
 .carouselImg {
-    height: 400px;
+    height: 350px;
 }
 .carouselTitle {
         color: yellow;
         font-style: italic;
         font-weight: bolder;
         font-size: 2rem;
-        padding-bottom: 16rem;
+        padding-bottom: 10rem;
 }
+
+
+
+
+
+

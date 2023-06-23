@@ -19,18 +19,17 @@ async function handleConfirm(userData){
   };
 
   try {
-    const id = await createOrderWithStockUpdate(order);
-    console.log("respuesta", id);
-    clear();
-
-    navigateTo(`/order-confirmation/${id}`);
-    /* 
-    1. alert: SweetAlert/toastify -> muestren el id
-    2. redirección: React Router -> /confirmation
-    3. rendering condicional -> modificando un state
-  */
+const id = await createOrderWithStockUpdate(order);
+console.log("respuesta", id);
+clear();
+navigateTo(`/order-confirmation/${id}`);   
   } catch (error) {
-    alert(error);
+    Swal.fire({      
+icon: 'error',       
+title: 'Error',       
+text: error,       
+confirmButtonText: 'Aceptar',
+});
   }
 }
 
@@ -38,7 +37,8 @@ async function handleConfirm(userData){
     return (
         <>
  <h2>Tu carrito está vacio</h2>
- <Link to="/" >Seguir comprando</Link>
+ <button className="btn btn-primary" >
+ <Link to="/" ><span style={{color:"white"}}>Seguir comprando</span></Link></button>
  </>
     )
     
@@ -46,24 +46,26 @@ async function handleConfirm(userData){
     
   } else {
     return (
+      <div className="card-body justify-content-center">
+      <h2 className="card-title">Tu carrito de compras</h2>
+      {cart.map((item) => (
+        <div className="card mb-3" key={item.id}>
+          <div className="card-body">
+            <h5 className="card-title">Producto: {item.title}</h5>
+            <p className="card-text">Cantidad: {item.count}</p>
+            <p className="card-text">Total: $ {(item.count * item.price).toFixed(2)}</p>
+            <button className="btn btn-danger" onClick={() => removeItem(item.id)}>
+              Eliminar
+            </button>
+          </div>
+        </div>
+      ))}
       <div>
-        <h2>Tu carrito de compras</h2>
-        {cart.map((item) => (
-          <ul key={item.id}>
-            <li>
-              Producto: {item.title}
-              <br />
-              Cantidad: {item.count}
-              <button className="btn btn-danger" onClick={() => removeItem(item.id)}>
-                X
-              </button>
-              <br />
-              Total: $ {(item.count * item.price).toFixed(2)}
-            </li>
-          </ul>
-        ))}
-         <CheckoutForm onConfirm={handleConfirm} />
+      <CheckoutForm onConfirm={handleConfirm} />
       </div>
+    </div>
+    
+
      
     );
   }

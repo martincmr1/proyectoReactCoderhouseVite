@@ -3,28 +3,28 @@ const mobilePhones = [
         "id": 1,
         "title": "Elaion Auro D1 020",
         "category": "Lubricantes",
-        "stock": 0,
+        "stock": 25,
         "img": "https://www.ypf.com/productosyservicios/PublishingImages/imagen-detalle-producto/Elaion_AURO_HYBRID_D1020.jpg",
         "price": 24232
       }, {
         "id": 2,
         "title": "Elaion Auro D1 530",
         "category": "Lubricantes",
-        "stock": 9,
+        "stock": 10,
         "img": "https://www.ypf.com/productosyservicios/PublishingImages/imagen-detalle-producto/Elaion_AURO_HYBRID_D1530.jpg",
         "price": 22356
       }, {
         "id": 3,
         "title": "Elaion F10 20w 50",
         "category": "Lubricantes",
-        "stock": 6,
+        "stock": 9,
         "img": "https://www.ypf.com/productosyservicios/PublishingImages/imagen-detalle-producto/Elaion_F50.jpg",
         "price": 8138
       }, {
         "id": 4,
         "title": "Elaion F30 10w 40",
         "category": "Lubricantes",
-        "stock": 7,
+        "stock": 15,
         "img": "https://www.ypf.com/productosyservicios/PublishingImages/imagen-detalle-producto/Elaion_F30.jpg",
         "price": 13184
       }, {
@@ -52,14 +52,14 @@ const mobilePhones = [
         "id": 8,
         "title": "Lavaautos",
         "category": "Complementarios",
-        "stock": 1,
+        "stock": 15,
         "img": "https://www.ypf.com/productosyservicios/PublishingImages/imagen-detalle-producto/lavaautos-500ml.jpg",
         "price": 1356
       }, {
         "id": 9,
         "title": "Mann W 712/75",
         "category": "Filtros",
-        "stock": 2,
+        "stock": 7,
         "img": "https://catalog.mann-filter.com/file/Product/ProductImages/Premium/spin/W_712.75/data/spinpict/001.jpg",
         "price": 1561
       }, {
@@ -73,7 +73,7 @@ const mobilePhones = [
         "id": 11,
         "title": "Mann WK 939/2",
         "category": "Filtros",
-        "stock": 1,
+        "stock": 4,
         "img": "https://catalog.mann-filter.com/file/Product/ProductImages/Premium/spin/WK_939.2_z/data/spinpict/022.jpg",
         "price": 5200
       }, {
@@ -92,5 +92,5 @@ const mobileTitles = mobilePhones.map ((celus) => {
 const mobileCategory = mobilePhones.map ((categorias) => {
     return categorias.category
 })
-
+/*<button onClick={exportData}>exportar datos</button>*/
 export default mobilePhones;

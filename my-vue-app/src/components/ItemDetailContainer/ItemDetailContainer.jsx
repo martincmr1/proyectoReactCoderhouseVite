@@ -6,6 +6,7 @@ import { cartContext } from '../../context/cartContext';
 import Boton from '../Button/Button';
 import Loader from '../Loader/Loader';
 import { getItemData } from '../../_services/firebase';
+import FlexComponent from '../Flex/FlexComponent';
 
 function ItemDetailContainer() {
   const [errors, setErrors] = useState(null);
@@ -42,7 +43,7 @@ function ItemDetailContainer() {
 
   if (product) {
     return (
-      <div className='ItemDetailContainer card position-absolute top-100 start-50 translate-middle' style={{ width: '18rem', alignContent: 'center' }}>
+      <div className='card position-absolute top-100 start-50 translate-middle' style={{ width: '18rem', alignContent: 'center'}}>
         <h1 className='productTextTitle'>{product.title}</h1>
         <img src={product.img} alt={product.title} />
         <h2 className='productTextPrice'>$ {product.price}</h2>
@@ -56,16 +57,18 @@ function ItemDetailContainer() {
                 <ItemCount className='itemCount' onAddToCart={onAddToCart} stock={product.stock} />
               ) : (
                 <Boton className='btn btn-primary'>
-                  <Link to='/cart'>Ir al carrito</Link>
+                  <Link to='/cart'><span className='cartbutton'>Ir al carrito</span></Link>
                 </Boton>
               )}
             </div>
 
             {product.stock > 0 && (
               <div>
+                <FlexComponent>
                 <Boton className='btn btn-danger' onClick={() => removeItem(product.id)}>
                   Eliminar
                 </Boton>
+                </FlexComponent>
               </div>
             )}
           </>

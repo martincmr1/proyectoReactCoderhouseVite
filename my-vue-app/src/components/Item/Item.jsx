@@ -2,7 +2,6 @@ import React from 'react'
 import "./Item.css"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
 function Item({title,img,category,price,color,stock,id}) {
@@ -10,9 +9,7 @@ function Item({title,img,category,price,color,stock,id}) {
   <div>     
     <Card style={{ width: '15rem'}}>
       <Card.Body>
-      
         <Card.Title>{title}</Card.Title>
-        
         <Link to={`/product/${id}`}>
         <Card.Img variant="top" src={img} />
         </Link>
@@ -23,28 +20,19 @@ function Item({title,img,category,price,color,stock,id}) {
         {category}
         </Card.Text>
         { stock === 0 ? (
-
-<Link to={`/product/${id}`}>
-          
+<Link to={`/product/${id}`}>          
 <Button variant="secondary">{"ver detalle"}</Button>
 </Link> 
         ):(
 <Link to={`/product/${id}`}>
-          
-          <Button variant="primary">{"ver detalle"}</Button>
-          </Link> 
-
-        )
-      
-      
-      
-      } 
-      {/*}  <ItemCount stock={stock}/>
-{/*}  <Boton color={color}>Agregar al carrito</Boton> */}
-      </Card.Body>
-    </Card>
-  </div>    
-  );
+<Button variant="primary">{"ver detalle"}</Button>
+</Link> 
+)
+} 
+</Card.Body>
+</Card>
+</div>    
+);
 }
 
 export default Item;
