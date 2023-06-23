@@ -24,12 +24,7 @@ console.log("respuesta", id);
 clear();
 navigateTo(`/order-confirmation/${id}`);   
   } catch (error) {
-    Swal.fire({      
-icon: 'error',       
-title: 'Error',       
-text: error,       
-confirmButtonText: 'Aceptar',
-});
+   alert(error)
   }
 }
 

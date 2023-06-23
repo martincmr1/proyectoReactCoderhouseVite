@@ -2,7 +2,7 @@ import React from 'react'
 import Item from '../Item/Item'
 import FlexComponent from '../Flex/FlexComponent'
 import Loader from '../Loader/Loader'
-import './Itemlist.css'
+import './ItemList.css'
 
 function Itemlist ({products,isLoading}) {
   if (isLoading) return <h1><Loader/></h1>
